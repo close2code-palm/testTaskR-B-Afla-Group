@@ -1,0 +1,36 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    script
+      include finalchoice.js 
+    title Document
+  body
+    mixin plan(plannum,cost)
+      span.choice
+        input.plannum(type="radio", name="License plan#")
+        h2.planid LICENSEPLAN##{plannum}
+        p #{cost}$ per license
+        
+    form(action="submit", method="post") 
+      +plan(1,13)
+      +plan(2,22)
+      +plan(3,34)
+      hr
+      span.quantity 
+        label Number of licenses: 
+        select
+          option(value='10' selected)
+          option(value='20')
+          option(value='30')
+      hr
+      span.order-price
+        h2 TOTAL:  #{totals}
+        sup US
+      button(type="submit") BUY NOW
+      span.urchoice 
+        p Selected plan:  ##{plansel}
+
+    
