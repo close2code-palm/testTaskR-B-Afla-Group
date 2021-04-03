@@ -10,17 +10,19 @@ html(lang="en")
   body
     mixin plan(plannum,cost)
       div.choice
-        label.radio
-          span.radio__input
-            input.radio(type="radio", name="License")
+        span.radio__input
+          input.radio(type="radio", name="License")
+          label.radio
             span.radio__control
-          span.radio__label LICENSEPLAN##{plannum}
-        span.radio__description #{cost}$ per license
+            span.radio__label 
+            | LICENSEPLAN##{plannum}
+            span.radio__description #{cost}$ per license
         
     form(action="submit", method="post") 
-      +plan(1,13)
-      +plan(2,22)
-      +plan(3,34)
+      div.plans
+        +plan(1,13)
+        +plan(2,22)
+        +plan(3,34)
       hr
       span.quant 
         label Number of licenses: 
@@ -30,10 +32,12 @@ html(lang="en")
           option(value='30')
       hr
       span.order-price
-        h2.finalprice TOTAL: 
-        sup US
+        h2 TOTAL: 
+        span.finalPrice
+          sup US
       button(type="submit") BUY NOW
       span.urchoice 
-        p.useplan Selected plan:  #
+        sapn.useplan Selected plan:  #
+        span.dynPlan
 
     

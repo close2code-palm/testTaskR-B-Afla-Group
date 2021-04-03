@@ -1,7 +1,14 @@
 @font-face 
   font-family: 'Bebas'
   src: url(fonts\Bebas-Regular.otf),
-        url(fonts\Bebas-Regular.ttf)
+    url(fonts\Bebas-Regular.ttf)
+
+
+$fill-col: #34648e
+*, 
+*:after,
+*:before
+  box-sizing: border-box
 
 html
   align-items: center
@@ -12,10 +19,33 @@ form
   background-color: gray
   background-opacity: .35
 
-.choice
-  
+.radio
+  font-size: 2.5em
+  display: flex
+  flex-direction: row
 
+.radio__input
 
+  input
+    opacity: 0
+    width: 0
+    height: 0
+    
+    &:checked + .radio__control
+      background: radial-gradient(currentcolor , #0294bf)
+
+.radio__label
+  line-height: 1
+
+.radio__control
+  display: block
+  width: 1.2em
+  height: 1.2em
+  border-radius: 50%
+  border: 0.1em solid $fill-col
+.finalPrice
+  color: $fill-col 
+  text-transform: bold
 
 button 
   width: 14em
@@ -23,3 +53,6 @@ button
   color: #fff
   background: green
   border-radius: 50%
+
+.urchoice
+  color: $fill-col

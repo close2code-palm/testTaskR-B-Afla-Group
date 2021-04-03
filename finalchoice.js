@@ -1,7 +1,7 @@
 const radios = document.querySelectorAll('radio');
 const select = document.querySelector('select');
-const currentPrice = document.querySelector('.finalPrice').textContent;
-const currentLicense = document.querySelector('.useplan')
+const currentPrice = document.querySelector('.finalPrice');
+const currentLicense = document.querySelector('.dynPlan')
 
 const newPrice = (plan, quantity) => plan * quantity;
 
@@ -15,5 +15,5 @@ for (let i = 0; i < radios.length; i++) {
 select.addEventListener('change click', function(event) {
   let currplan = document.querySelector('radio:selected').nodeValue;
   currentLicense.textContent = 'Selected plan:  #' + event.target.value;
-  currentPrice = 'TOTAL: ' + newPrice(currplan, this.nodeValue)
+  currentPrice.textContent = newPrice(currplan, this.nodeValue)
 })
