@@ -4,6 +4,7 @@ html(lang="en")
     meta(charset="UTF-8")
     meta(http-equiv="X-UA-Compatible", content="IE=edge")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    link(rel="stylesheet", href="testBuy.css")
     script
       include finalchoice.js 
     title Document
@@ -15,7 +16,7 @@ html(lang="en")
           label.radio
             span.radio__control
             span.radio__label 
-            | LICENSEPLAN##{plannum}
+            | LICENSE PLAN##{plannum}
             span.radio__description #{cost}$ per license
         
     form(action="submit", method="post") 
@@ -26,13 +27,13 @@ html(lang="en")
       hr
       span.quant 
         label Number of licenses: 
-        select.quant__options
-          option(value='10' selected)
-          option(value='20')
-          option(value='30')
+        select.quant__options(name="licences")
+          option(value='10' selected) 10
+          option(value='20') 20 
+          option(value='30') 30
       hr
       span.order-price
-        h2 TOTAL: 
+        span TOTAL: 
         span.finalPrice
           sup US
       button(type="submit") BUY NOW
